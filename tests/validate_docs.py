@@ -6,7 +6,9 @@ import unittest
 from fractions import Fraction
 
 ROOT = Path(__file__).resolve().parents[1]
-DOCS = [ROOT / 'README.md', ROOT / 'NOTICE.md', *sorted((ROOT / 'docs').glob('*.md'))]
+READMES = ['README.md', 'README.en.md', 'README.ja.md']
+DOCS = [*sorted(ROOT.glob('README*.md')), ROOT / 'NOTICE.md',
+        *sorted((ROOT / 'docs').rglob('*.md'))]
 SPEC = ROOT / 'docs/PROJECT_INSTRUCTIONS.md'
 NAMES = ['共同核心', '一般教學', '針對性補強', '純 Chat 模考', '正式考試難度校準']
 
@@ -41,6 +43,15 @@ class DocumentChecks(unittest.TestCase):
                 self.assertTrue(dest.is_file(), (path, target))
                 if len(parts) == 2:
                     self.assertIn(parts[1], anchors(dest.read_text()), (path, target))
+
+    def test_locale_navigation_and_entry_point(self):
+        for name in READMES:
+            with self.subTest(locale=name):
+                text = (ROOT / name).read_text(encoding='utf-8')
+                for other in READMES:
+                    if other != name:
+                        self.assertIn(f']({other})', text)
+                self.assertIn('](docs/PROJECT_INSTRUCTIONS.md)', text)
 
     def test_mode_projection(self):
         # Ensures the extractable general-learning bundle does not silently
