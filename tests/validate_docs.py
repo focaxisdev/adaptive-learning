@@ -8,7 +8,8 @@ from fractions import Fraction
 ROOT = Path(__file__).resolve().parents[1]
 READMES = ['README.md', 'README.en.md', 'README.ja.md']
 DOCS = [*sorted(ROOT.glob('README*.md')), ROOT / 'NOTICE.md',
-        *sorted((ROOT / 'docs').rglob('*.md'))]
+        *sorted((ROOT / 'docs').rglob('*.md')),
+        *sorted((ROOT / 'examples').rglob('*.md'))]
 SPEC = ROOT / 'docs/PROJECT_INSTRUCTIONS.md'
 NAMES = ['共同核心', '一般教學', '針對性補強', '純 Chat 模考', '正式考試難度校準']
 
@@ -39,7 +40,7 @@ class DocumentChecks(unittest.TestCase):
                 if '://' in target:
                     continue
                 parts = target.split('#', 1)
-                dest = (path.parent / parts[0]).resolve()
+                dest = (path.parent / parts[0]).resolve() if parts[0] else path
                 self.assertTrue(dest.is_file(), (path, target))
                 if len(parts) == 2:
                     self.assertIn(parts[1], anchors(dest.read_text()), (path, target))

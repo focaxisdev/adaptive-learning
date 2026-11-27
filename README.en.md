@@ -6,6 +6,10 @@ A conversation-based framework for learning any subject. The aim is to apply wha
 
 **v0.2.0 · [MIT License](LICENSE) · [Release history](https://github.com/focaxisdev/adaptive-learning/releases)**
 
+**Three borrowing rules, one question. Which two rules are still untested?**
+
+[Try the one-question tool library demo](examples/first-try.md#english). Paste the full project instructions and the sample into a new chat. Check the blueprint, then tell the assistant to start. After you answer, compare the list of untested rules with the original three.
+
 ## Quick start
 
 1. Give your AI assistant the **full text** of the [project instructions](docs/PROJECT_INSTRUCTIONS.md) and any study material you may use. The canonical instructions are in Traditional Chinese; they still govern the workflow when you ask to study in English. A link alone does not give the assistant access.

@@ -6,6 +6,10 @@
 
 **v0.2.0 · [MIT License](LICENSE) · [發行紀錄](https://github.com/focaxisdev/adaptive-learning/releases)**
 
+**三條借用規則，只考一題。哪兩條還沒考到？**
+
+[試做工具借用站的一題模考](examples/first-try.md#繁體中文)。把專案指令全文和範例教材貼進新 Chat，核對知識藍圖，再明確開考。答完後，對照三條規則，看看結算有沒有列對未測項目。
+
 ## 開始
 
 1. 在新 Chat 提供 [專案指令](docs/PROJECT_INSTRUCTIONS.md) 的完整內容，以及有權使用的教材；只貼連結不代表內容可讀。
